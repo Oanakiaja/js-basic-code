@@ -92,11 +92,9 @@ Object.defineProperty(Object, 'assign', {
     for (let i = 0; i < args.length; i++) {
       const nextSource = args[i];
       if (nextSource != null) {
-        for (const nextKey in nextSource) {
-          if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-            to[nextKey] = nextSource[nextKey];
-          }
-        }
+        Object.keys(nextSource).forEach((key) => {
+          to[key] = nextSource[key];
+        });
       }
     }
     return to;
@@ -228,3 +226,6 @@ const cloneDeep3 = (source, hash = new Weekmap()) => {
   }
   return target;
 };
+
+// 如何判断一个对象是不是空对象
+// Object.keys(obj).length ==== 0

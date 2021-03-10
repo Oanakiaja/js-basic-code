@@ -1,5 +1,4 @@
 // Generator实现一个自执行,就是实现 著名的co模块：
-
 function run(gen) {
   return new Promise(function (resolve, reject) {
     if (typeof gen == 'function') gen = gen();
